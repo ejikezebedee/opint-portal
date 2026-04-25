@@ -1,0 +1,16 @@
+[Unit]
+Description=Opportunity Intelligence Portal
+After=network.target
+
+[Service]
+Type=simple
+WorkingDirectory=/root/.openclaw/workspace/opint-portal
+Environment=NODE_ENV=production
+EnvironmentFile=/root/.openclaw/workspace/opint-portal/.env.local
+ExecStart=/usr/bin/npm run start -- --hostname 127.0.0.1 --port 3001
+Restart=always
+RestartSec=5
+User=root
+
+[Install]
+WantedBy=multi-user.target
